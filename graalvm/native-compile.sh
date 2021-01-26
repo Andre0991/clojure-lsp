@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-GRAAL_VM_DOCKER_IMAGE=springci/graalvm-ce:20.2-dev-java11
+GRAAL_VM_DOCKER_IMAGE=springci/graalvm-ce:21.0-dev-java11
 
-LEIN_SNAPSHOTS_IN_RELEASE=1 lein with-profiles +clojure-1.10.2,+native-image "do" clean, uberjar
+# LEIN_SNAPSHOTS_IN_RELEASE=1 lein with-profiles +native-image "do" clean, uberjar
 
 jar=$(ls target/clojure-lsp-*-standalone.jar)
 
@@ -16,7 +16,7 @@ args=( "-jar" "$outfile"
               "-H:ReflectionConfigurationFiles=/clojure-lsp/graalvm/reflection.json"
               "-H:DynamicProxyConfigurationFiles=/clojure-lsp/graalvm/proxy.json"
               "--initialize-at-build-time"
-              "-H:+TraceClassInitialization"
+              # "-H:TraceClassInitialization="
               "-H:IncludeResources='db/.*|static/.*|templates/.*|.*.yml|.*.xml|.*/org/sqlite/.*|org/sqlite/.*'"
               "--report-unsupported-elements-at-runtime"
               "-H:Log=registerResource:"
