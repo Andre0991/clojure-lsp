@@ -30,7 +30,7 @@
                     :dependencies [[pjstadig/humane-test-output "0.9.0"]]
                     :injections [(require 'pjstadig.humane-test-output)
                                  (pjstadig.humane-test-output/activate!)]}
-             :native-image {:dependencies [[ericdallo/sqlite-jni-graal-fix "0.0.1-graalvm-21.0.0"]
-                                           [org.graalvm.nativeimage/svm "21.0.0"]
-                                           [borkdude/sci.impl.reflector "0.0.1-java11"]]}
+             :native-image {:dependencies [[ericdallo/sqlite-jni-graal-fix "0.0.1-graalvm-20.2.0"]
+                                           [org.graalvm.nativeimage/svm "20.2.0"]
+                                           #_[borkdude/sci.impl.reflector "0.0.1-java11"]]}
              :uberjar {:aot :all}})
